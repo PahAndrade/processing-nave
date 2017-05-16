@@ -28,8 +28,12 @@ class Nave {
   }
   
   public void desenha() {
+    pushMatrix();
+    translate(_posicao.x, _posicao.y);
+    rotate(_direcao.heading() + PConstants.HALF_PI);
     fill(_r, _g, _b);
-    triangle(_posicao.x, _posicao.y - _tam, _posicao.x + _tam, _posicao.y + _tam, _posicao.x - _tam, _posicao.y + _tam);
+    triangle(0, -_tam, _tam, _tam, - _tam, _tam);
+    popMatrix();
   }
   
   public void atualizaPosicao(int x, int y) {
@@ -47,6 +51,14 @@ class Nave {
   
   public void freia() {
     if (_velocidade > 0) _velocidade--;
+  }
+  
+  public void viraSentAntiHorario() {
+    _direcao.rotate(-PConstants.PI / 32);
+  }
+  
+  public void viraSentHorario() {    
+    _direcao.rotate(PConstants.PI / 32);
   }
   
 }

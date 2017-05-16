@@ -26,5 +26,9 @@ void keyPressed() {
     n2.acelera();
   } else if (keyCode == DOWN) {
     n2.freia();
+  } else if (keyCode == LEFT) {
+    n2.viraSentAntiHorario();
+  } else if (keyCode == RIGHT) {
+    n2.viraSentHorario();
   }
 }
